@@ -1,0 +1,2 @@
+const dbDump = "mongodump --ssl --host Cluster0-shard-0/cluster0-shard-00-00-eezoe.mongodb.net,cluster0-shard-00-01-eezoe.mongodb.net,cluster0-shard-00-02-eezoe.mongodb.net --authenticationDatabase admin -u alex_zol -p Iop90Olmg#IowweE3s";
+const dbRestore = "mongorestore --ssl --host Cluster0-shard-0/cluster0-shard-00-00-eezoe.mongodb.net,cluster0-shard-00-01-eezoe.mongodb.net,cluster0-shard-00-02-eezoe.mongodb.net --authenticationDatabase admin -u alex_zol -p Iop90Olmg#IowweE3s --db soqqle_prod dump/test"

@@ -1,0 +1,7 @@
+.vscode
+node_modules
+artifact.zip
+tmp
+build
+npm-debug.log
+*.db

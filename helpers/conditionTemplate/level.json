@@ -1,0 +1,17 @@
+{
+  "roadmap": {
+    "conditions": {
+      "$elemMatch": {
+        "type": {
+          "$eq": "Level"
+        },
+        "levelType": {
+          "$eq": "Roadmap"
+        },
+        "_roadmap": {
+          "$eq": ""
+        }
+      }
+    }
+  }
+}

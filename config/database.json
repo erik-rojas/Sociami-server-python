@@ -1,0 +1,6 @@
+{
+    "username":"alex_zol",
+    "pass":"Iop90Olmg#IowweE3s",
+
+    "uri":"mongodb://{username}:{password}@cluster0-shard-00-00-eezoe.mongodb.net:27017,cluster0-shard-00-01-eezoe.mongodb.net:27017,cluster0-shard-00-02-eezoe.mongodb.net:27017/{dbname}?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin"
+}

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ ! -z "$DEPLOYMENT_GROUP_NAME" ]; then
+ export NODE_ENV=$DEPLOYMENT_GROUP_NAME
+fi
+
+DEPLOYMENT_PATH='/home/ec2-user/sociami_staging/'
+APP_NAME='sociami_stg'
+
+if [ "$DEPLOYMENT_GROUP_NAME" == "production" ]; then
+  DEPLOYMENT_PATH='/home/ec2-user/sociami_production/'
+  APP_NAME='sociami_prd'
+fi
+
+
+cd $DEPLOYMENT_PATH
+pm2 describe $APP_NAME > /dev/null
+RUNNING=$?
+
+if [ "${RUNNING}" -ne 0 ]; then
+  pm2 start server.js --name $APP_NAME
+else
+  pm2 restart $APP_NAME
+fi

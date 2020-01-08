@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -e
+
+TEMP_FOLDER='/home/ec2-user/sociamidev/'
+
+# Staging deployment by default
+DEPLOYMENT_PATH='/home/ec2-user/sociami_staging/'
+
+
+# setup NODE_ENV
+if [ ! -z "$DEPLOYMENT_GROUP_NAME" ]; then
+    export NODE_ENV=$DEPLOYMENT_GROUP_NAME
+
+    hasEnv=`grep "export NODE_ENV" ~/.bash_profile | cat`
+    if [ -z "$hasEnv" ]; then
+        echo "export NODE_ENV=$DEPLOYMENT_GROUP_NAME" >> ~/.bash_profile
+    else
+        sed -i "/export NODE_ENV=\b/c\export NODE_ENV=$DEPLOYMENT_GROUP_NAME" ~/.bash_profile
+    fi
+fi
+
+# Identify whether it is a production or staging deployment
+if [ "$DEPLOYMENT_GROUP_NAME" == "production" ]; then
+  DEPLOYMENT_PATH='/home/ec2-user/sociami_production/'
+fi
+
+# create deployment folder if not existed
+mkdir -p $DEPLOYMENT_PATH
+
+# copy the code to deployment folder
+cp -Ru "$TEMP_FOLDER"* $DEPLOYMENT_PATH
+
+# download and install npm modules
+cd $DEPLOYMENT_PATH
+npm install

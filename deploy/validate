@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+sleep 10
+
+PORT=8080
+
+if [ "$DEPLOYMENT_GROUP_NAME" == "production" ]; then
+  PORT=3000
+fi
+
+nc -zv 127.0.0.1 $PORT

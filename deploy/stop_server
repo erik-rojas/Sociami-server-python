@@ -1,0 +1,14 @@
+#!/bin/bash
+
+APP_NAME='sociami_stg'
+
+if [ "$DEPLOYMENT_GROUP_NAME" == "production" ]; then
+  APP_NAME='sociami_prd'
+fi
+
+pm2 describe $APP_NAME > /dev/null
+RUNNING=$?
+
+if [ "${RUNNING}" -eq 0 ]; then
+  pm2 stop $APP_NAME
+fi

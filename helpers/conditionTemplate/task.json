@@ -1,0 +1,41 @@
+{
+  "task": {
+    "conditions": {
+      "$elemMatch": {
+        "type": {
+          "$eq": "Task"
+        },
+        "taskType": {
+          "$eq": ""
+        }
+      }
+    }
+  },
+  "progression": {
+    "conditions": {
+      "$elemMatch":{
+        "type": {
+          "$eq": "Progression"
+        },
+        "_roadmap": {
+          "$eq": ""
+        }
+      }
+    }
+  },
+  "taskAndProgression": {
+    "conditions": {
+      "$elemMatch": {
+        "type": {
+          "$eq": "Task and Progression"
+        },
+        "taskType": {
+          "$eq": ""
+        },
+        "_roadmap": {
+          "$eq": ""
+        }
+      }
+    }
+  }
+}
