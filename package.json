@@ -35,7 +35,7 @@
     "apiai": "^4.0.3",
     "async": "^1.5",
     "async-each": "^1.0.1",
-    "aws-sdk": "^2.254.1",
+    "aws-sdk": "^2.814.0",
     "axios": "^0.16.2",
     "babel-preset-env": "^1.7.0",
     "backpack-core": "^0.7.0",
