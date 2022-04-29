@@ -33,7 +33,7 @@
     "@google-cloud/storage": "^1.7.0",
     "@types/es6-promise": "^3.3.0",
     "apiai": "^4.0.3",
-    "async": "^1.5",
+    "async": "^2.6",
     "async-each": "^1.0.1",
     "aws-sdk": "^2.254.1",
     "axios": "^0.16.2",
